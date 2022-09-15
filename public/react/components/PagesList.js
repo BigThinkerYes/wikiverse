@@ -1,15 +1,12 @@
 import React from "react";
 import { Page } from "./Page";
 
-export const PagesList = ({ fetchArticleData, pages }) => {
+export const PagesList = ({ pages, handleClick }) => {
   return (
     <>
-      {Page &&
-        pages.map((page, idx) => {
-          return (
-            <Page fetchArticleData={fetchArticleData} page={page} key={idx} />
-          );
-        })}
+      {pages.map((page, idx) => {
+        return <Page page={page} key={idx} handleClick={handleClick} />;
+      })}
     </>
   );
 };
