@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
 
-export const Page = (props) => {
-
-  return <>
-    <h3>{props.page.title}</h3>
-  </>
-} 
-	
+export const Page = ({ fetchArticleData, page }) => {
+  return (
+    <>
+      <div className="box">
+        <h3 onClick={() => fetchArticleData(page)}>
+          {page.title}
+          <br /> {page.content} <br />
+          {page.status}
+        </h3>
+      </div>
+    </>
+  );
+};

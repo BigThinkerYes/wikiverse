@@ -1,12 +1,14 @@
-import React from 'react';
-import { Page } from './Page';
+import React from "react";
+import { Page } from "./Page";
 
-export const PagesList = ({pages}) => {
-	return <>
-		{
-			pages.map((page, idx) => {
-				return <Page page={page} key={idx} />
-			})
-		}
-	</>
-} 
+export const PagesList = ({ fetchArticleData, pages }) => {
+  return (
+    <>
+      {pages.map((page, idx) => {
+        return (
+          <Page fetchArticleData={fetchArticleData} page={page} key={idx} />
+        );
+      })}
+    </>
+  );
+};
