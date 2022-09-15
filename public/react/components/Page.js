@@ -5,10 +5,16 @@ export const Page = ({ fetchArticleData, page }) => {
     <>
       <div className="box">
         <h3 onClick={() => fetchArticleData(page)}>
-          {page.title}
-          <br /> {page.content} <br />
-          {page.status}
+          <strong>{page.title}</strong>
         </h3>
+        <br />{" "}
+        <p>
+          <strong>{page.content}</strong>
+        </p>{" "}
+        <br />
+        <p>
+          <strong>{page.status}</strong>
+        </p>
       </div>
     </>
   );

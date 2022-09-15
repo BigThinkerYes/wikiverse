@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PagesList } from "./PagesList";
 import { Create } from "./create/create";
 
-import dataJs from "../../../../wikiverse/server/seedData";
+//import dataJs from "../../../../wikiverse/server/seedData";
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
 import { Update } from "./update/update";
@@ -15,13 +15,7 @@ const initialInputOptions = {
   tags: "",
 };
 ///////////////////////////////////////
-const updateArticleOptions = {
-  title: "title",
-  content: "content",
-  name: "name",
-  email: "email",
-  tags: "tags",
-};
+
 ///////////////////////////////////////
 export const App = () => {
   const [pages, setPages] = useState([]);
@@ -29,8 +23,9 @@ export const App = () => {
   const [isAddingArticle, setIsAddingArticle] = useState(false);
   /////////
   const [inputOptions, setInputOptions] = useState(initialInputOptions);
-
-  const [updateArticle, setIsUpdatingArticle] = useState(updateArticleOptions);
+  //////////
+  const [newArticle, setNewArticle] = useState("");
+  const [updateArticle, setUpdateArticle] = useState("");
   //////////
   async function fetchPages() {
     try {
@@ -51,7 +46,7 @@ export const App = () => {
       console.log("An error has occurred!", err);
     }
   }
-  //////////////////////////////////////////////////
+  ///////////////////////view///////////////////////////
 
   /////////////////////////////////////////////////////
   async function submitHandler(e) {
@@ -71,10 +66,7 @@ export const App = () => {
     resetFields();
   }
   ///////////////////////////////////////////////////
-  async function submitHandler(e) {
-    e.preventDefault();
-    const articleUpdate = updateArticle;
-  }
+
   ///////////////////////////////////////////////////
   function resetFields() {
     setInputOptions(initialInputOptions);
